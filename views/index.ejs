@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="styles/main.css">
+
+</head>
+<body>
+
+<div class="split left">
+  <div class="centered">
+    <h2>JokeAPI Documentation </h2>
+      <form action="/" method="POST">
+        <table>
+          <tbody>
+            <tr>
+              <td class="tdClass">
+                Select category: 
+              </td>
+              <td class="tdClass" >
+                  <input type="radio" name="catSelect" value="any" id="any" checked="checked" ><label for="cat-radio1">Any</label>
+                  <input type="radio" name="catSelect" value="programming" id="cat-cb1"><label for="cat-cb1">Programming</label>
+                  <input type="radio" name="catSelect" value="music" id="cat-cb2" ><label for="cat-cb2">Misc</label>
+                  <input type="radio" name="catSelect" value="dark" id="cat-cb3"><label for="cat-cb3">Dark</label>
+                  <input type="radio" name="catSelect" value="spooky" id="cat-cb5"><label for="cat-cb5">Spooky</label>
+                  <input type="radio" name="catSelect" value="pun" id="cat-cb4"><label for="cat-cb4">Pun</label>
+                  <input type="radio" name="catSelect" value="christmas" id="cat-cb6"><label for="cat-cb6">Christmas</label>   
+              </td>
+            </tr>
+            <tr>
+              <td class="tdClass">
+                Select <a>language</a>:
+              </td>
+              <td class="tdClass form-select">
+                  <select name= "langSelect" id="lcodeSelect" class="appendLangOpts">
+                    <option value="en">en - English</option>
+                    <option value="cs">cs - Czech</option>
+                    <option value="de">de - German</option>
+                    <option value="es">es - Spanish</option>
+                    <option value="fr">fr - French</option>
+                    <option value="pt">pt - Portuguese</option>
+                  </select>
+              </td>
+            </tr>
+            <tr>
+              <td class="tdClass">
+                Select Flag to blacklist category: 
+              </td>
+              <td class="tdClass" >
+                  <input type="checkbox" name="flagSelect" value="religious" id="flag-cb1"><label for="flag-cb1">Religious</label>
+                  <input type="checkbox" name="flagSelect" value="racist" id="flag-cb2" ><label for="flag-cb2">Racist</label>
+                  <input type="checkbox" name="flagSelect" value="sexist" id="flag-cb3"><label for="flag-cb3">Sexist</label>
+                  <input type="checkbox" name="flagSelect" value="explicit" id="flag-cb4"><label for="flag-cb4">Explicit</label>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <input class="submitButton" type="submit" value="Submit">
+    </form>
+    </div>
+  </div>
+</div>
+
+<div class="split right">
+  <div class="centered">
+    <%if (locals.emoji) {%>
+      <h2> Hilarious joke of the day <%= emoji %> </h2>
+      <% } else { %>
+        <h2> Hilarious joke of the day <%= emoji1 %></h2>
+      <% } %>
+    <%if (locals.data) {%>
+      <%if (data.joke) {%>
+        <p><%= data.joke %></p>
+        <%} if(data.setup) {%>
+          <p><%= data.setup %></p>
+          <p><%= data.delivery %></p>
+        <% } else { %>
+          <p><%= data.message %></p>
+        <% } %>
+    <%}%>
+  </div>
+</div>
+</body>
+</html> 
+
+
+
+
+
+
+
